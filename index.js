@@ -99,15 +99,23 @@ function cumleKur(
 
 /* (Oto test yok) cumleKur fonksiyonuna yalnızca 1 parametre göndererek "Hello World!" stringini elde edin, 
 sonucu konsolde gözlemleyin */
-
+console.log("1.örnek görev", cumleKur("Hello World!"));
 /* (Oto test yok) cumleKur fonksiyonuna yalnızca 2 parametre göndererek "Hello World!" stringini elde edin, 
 sonucu konsolde gözlemleyin */
-
+const kelime1 = "Hello";
+const kelime2 = "World!";
+console.log("2.örnek görev", cumleKur(kelime1, kelime2));
 /* (Oto test var) cumleKur fonksiyonuna 5 parametre göndererek "Ben iyi bir yazılımcı olacağım!" stringini 
 elde edin, sonucu `bircumle` değişkenine atayın ve konsolde gözlemleyin */
 var bircumle;
 
-/* kodlar buraya */
+const bir = "Ben";
+const iki = " iyi";
+const uc = " bir";
+const dort = " yazılımcı";
+const bes = " olacağım!";
+var bircumle = cumleKur(bir, iki, uc, dort, bes);
+console.log(bircumle);
 
 //		Sayfanın en üstünde global olarak tanımlanmış `cumleler` adında bir dizi bulunmaktadır. Bu dizinin
 // içinde en çok 5 en az 1 adet string bulunan diziler bulunmaktadır.Aşağıdaki görevlerde aksi
@@ -128,9 +136,10 @@ var bircumle;
 			5. Oluşturulan yeni dizi döndürülecek.
 	*/
 
-function cumlelereDonustur(/* kodlar buraya */) {
-  /* kodlar buraya */
+function cumlelereDonustur(cumleler, ayrac = ",") {
+  return cumleler.map((cumle) => cumle.join(ayrac));
 }
+console.log("G1:", cumlelereDonustur(cumleler, " "));
 
 /* GÖREV 2:
 		paragrafOlustur fonksiyonuna aşağıdakileri uygulayın.
@@ -145,10 +154,21 @@ function cumlelereDonustur(/* kodlar buraya */) {
 			6. Oluşturulan paragraf döndürülecek
 	*/
 
-function paragrafOlustur(/* kodlar buraya */) {
-  /* kodlar buraya */
+function paragrafOlustur(cumleler, cumleKur, cumlelereDonustur) {
+  const cumleDizisi = cumlelereDonustur(cumleler, " ");
+  const parametreler = [
+    cumleKur(
+      cumleDizisi[1],
+      cumleDizisi[3],
+      cumleDizisi[5],
+      cumleDizisi[7],
+      cumleDizisi[9]
+    ),
+  ];
+  return parametreler;
 }
 
+console.log("G2:", ...paragrafOlustur(cumleler, cumleKur, cumlelereDonustur));
 /* 	GÖREV 3:
 		Yukarıda isimleri sebzeler ve meyveler olan 2 dizi bulunmaktadır. Bu dizileri kullanarak aşağıdaki görevleri tamamlayın.
 			3a. meyveler dizisinin ilk ve son elemanlarını diziden çıkartın. (.pop ve .shift metodlarını kullanın)
