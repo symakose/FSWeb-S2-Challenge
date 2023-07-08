@@ -154,21 +154,21 @@ console.log("G1:", cumlelereDonustur(cumleler, " "));
 			6. Oluşturulan paragraf döndürülecek
 	*/
 
-function paragrafOlustur(cumleler, cumleKur, cumlelereDonustur) {
-  const cumleDizisi = cumlelereDonustur(cumleler, " ");
-  const parametreler = [
-    cumleKur(
-      cumleDizisi[1],
-      cumleDizisi[3],
-      cumleDizisi[5],
-      cumleDizisi[7],
-      cumleDizisi[9]
-    ),
-  ];
+function paragrafOlustur(cumleler1, cumleKur1, cumlelereDonustur1) {
+  const cumleDizisi = cumlelereDonustur1(cumleler1, " ");
+  const parametreler = cumleKur1(
+    cumleDizisi[1],
+    cumleDizisi[3],
+    cumleDizisi[5],
+    cumleDizisi[7],
+    cumleDizisi[9]
+  );
+
   return parametreler;
 }
 
-console.log("G2:", ...paragrafOlustur(cumleler, cumleKur, cumlelereDonustur));
+console.log("G2:", paragrafOlustur(cumleler, cumleKur, cumlelereDonustur));
+
 /* 	GÖREV 3:
 		Yukarıda isimleri sebzeler ve meyveler olan 2 dizi bulunmaktadır. Bu dizileri kullanarak aşağıdaki görevleri tamamlayın.
 			3a. meyveler dizisinin ilk ve son elemanlarını diziden çıkartın. (.pop ve .shift metodlarını kullanın)
