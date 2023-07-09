@@ -136,8 +136,8 @@ console.log(bircumle);
 			5. Oluşturulan yeni dizi döndürülecek.
 	*/
 
-function cumlelereDonustur(cumleler, ayrac = ",") {
-  return cumleler.map((cumle) => cumle.join(ayrac));
+function cumlelereDonustur(cumlelerFn, ayrac = ",") {
+  return cumlelerFn.map((cumle) => cumle.join(ayrac));
 }
 console.log("G1:", cumlelereDonustur(cumleler, " "));
 
@@ -209,13 +209,22 @@ console.log("görev 3c:", sebzeler);
         ( .replaceAll metodu kullanılacak)
 				NOT: burada dikkat edilmesi gereken husus şudur; harfli sembolleri kullanıcı küçük harf ve 
         büyük harf olarak girebilir. yani hem :d hem de :D sembolleri 😁'a dönüşmelidir. bunun için 
-        (.toUpperCase ve .toLowerCase metotlarıı kullanabilirsiniz.)
+        (.toUpperCase ve .toLowerCase metotlarını kullanabilirsiniz.)
 			4. elde edilen string döndürülecek
  */
-
-function emojileriDonustur(/* kodlar buraya */) {
-  /* kodlar buraya */
+function emojileriDonustur(msgStr, emojis) {
+  for (let txt in emojis) {
+    msgStr = msgStr.replaceAll(txt.toLowerCase(), emojiler[txt]);
+    msgStr = msgStr.replaceAll(txt.toUpperCase(), emojiler[txt]);
+  }
+  return msgStr;
 }
+
+console.log(
+  "G4:",
+  "Selam 🙂 Nasılsın 😁 Bugünkü olay çok komikti 😛 ama sonra çok şaşırdık 😱 biraz da üzüldük 😔 ama yine de seviliyorsun ❤️",
+  emojiler
+);
 
 /*  Bu satırın aşağısındaki kodları lütfen değiştirmeyin  */
 function sa() {
